@@ -168,3 +168,4 @@ cython_debug/
 # project environment
 env_recsys_start/
 .DS_Store
+catboost_info/*
