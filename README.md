@@ -63,10 +63,34 @@ jupyter lab --ip=0.0.0.0 --no-browser
 
 Код сервиса рекомендаций находится в файле `recommendations_service.py`.
 
-<*укажите здесь необходимые шаги для запуска сервиса рекомендаций*>
+Изначально файлы с рекомендациями должны хранится в директории по путям:
+- recsys/recommendations/recommendations.parquet
+- recsys/recommendations/similar.parquet
+- recsys/recommendations/top_popular.parquet
+Скачать их можно из S3
+Имя бакета: s3-student-mle-20250304-1a43d7f905
+Директория в бакете: recsys/recommendations
+Env переменные
+
+```env
+    AWS_ACCESS_KEY_ID=
+    AWS_SECRET_ACCESS_KEY=
+    BUCKET_NAME=s3-student-mle-20250304-1a43d7f905
+```
+Загрузка рекомендаций, если требуется
+```bash
+    python load_recs.py
+```
+
+Запуск сервиса
+```bash
+    uvicorn recommendations_service:app --host 0.0.0.0 --port 8080
+```
 
 # Инструкции для тестирования сервиса
 
 Код для тестирования сервиса находится в файле `test_service.py`.
 
-<*укажите здесь необходимые шаги для тестирования сервиса рекомендаций*>
+```bash
+    python test_service.py
+```
